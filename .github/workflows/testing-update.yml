@@ -1,0 +1,19 @@
+name: Testing
+
+on:  
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron:  '*/5 * * * *'
+jobs:
+  build:
+     if: github.event.base_ref == 'refs/heads/master'
+     runs-on: ubuntu-latest
+     steps:
+      - run: |
+          echo "Hello!"
+  say_hello:
+    # Uses a ubuntu-lates runner to complete the requested steps
+    runs-on: ubuntu-latest
+    steps:
+    - run: |
+        echo "Hello!"
