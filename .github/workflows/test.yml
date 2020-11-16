@@ -1,0 +1,13 @@
+name: Nightly Tests
+
+on:
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron:  '*/5 * * * *'
+jobs:
+  say_hello:
+    # Uses a ubuntu-lates runner to complete the requested steps
+    runs-on: ubuntu-latest
+    steps:
+    - run: |
+        echo "Hello ${{ github.event.inputs.name }}!"
